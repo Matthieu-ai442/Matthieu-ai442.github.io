@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Search Results – Matthieupedia</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+        color: #333333;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+      header {
+        background-color: #3c4e56;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      #results {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .result-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Matthieupedia</h1>
+      <p>Search Results</p>
+    </header>
+
+    <nav style="text-align: center; margin-bottom: 20px;">
+      <a href="index.html" style="margin-right: 15px;">Home</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+      <input type="text" id="searchInput" placeholder="Search Matthieupedia..." style="padding: 10px; width: 300px; border-radius: 5px; border: 1px solid #ccc;">
+      <button onclick="searchFunction()" style="padding: 10px 15px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Search</button>
+    </div>
+
+    <div id="results">
+      <h2>Results for: <span id="searchTerm"></span></h2>
+      <div id="resultsList"></div>
+    </div>
+
+    <script>
+      // Récupère le terme de recherche depuis l'URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchTerm = urlParams.get('q') || "";
+      document.getElementById("searchTerm").textContent = searchTerm;
+      document.getElementById("searchInput").value = searchTerm;
+
+      // Liste des pages et articles disponibles (à mettre à jour manuellement)
+      const pages = [
+        { title: "How to Install and Use Proton on Linux", url: "articles/how-to-install-and-use-proton.html", keywords: ["proton", "linux", "install", "use", "steam", "windows games"] },
+      ];
+
+      // Fonction pour afficher les résultats
+      function displayResults(term) {
+        const resultsList = document.getElementById("resultsList");
+        resultsList.innerHTML = "";
+
+        if (!term) {
+          resultsList.innerHTML = "<p>No search term provided.</p>";
+          return;
+        }
+
+        const lowerTerm = term.toLowerCase();
+        const matches = pages.filter(page =>
+          page.title.toLowerCase().includes(lowerTerm) ||
+          page.keywords.some(keyword => keyword.includes(lowerTerm))
+        );
+
+        if (matches.length === 0) {
+          resultsList.innerHTML = "<p>No results found for '" + term + "'.</p>";
+        } else {
+          matches.forEach(match => {
+            resultsList.innerHTML += `
+              <div class="result-item">
+                <h3><a href="${match.url}">${match.title}</a></h3>
+              </div>
+            `;
+          });
+        }
+      }
+
+      // Affiche les résultats au chargement de la page
+      displayResults(searchTerm);
+
+      // Fonction de recherche
+      function searchFunction() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        window.location.href = `search.html?q=${encodeURIComponent(input)}`;
+      }
+    </script>
+
+    <footer style="background-color: #3c4e56; color: white; text-align: center; padding: 15px; border-radius: 8px; margin-top: 20px;">
+      <p>© 2026 Matthieupedia – All rights reserved</p>
+    </footer>
+  </body>
+</html>
