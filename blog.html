@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Matthieupedia Blog – Tutorials and tips for Linux and gaming.">
-    <meta name="keywords" content="Proton, Linux, Windows games, Steam, tutorial, blog, gaming">
+    <meta name="description" content="Complete guide to install and use Proton on Linux for playing Windows games.">
+    <meta name="keywords" content="Proton, Linux, Steam, Windows games, installation, tutorial, gaming">
     <meta name="author" content="Matthieu Bonnotte">
-    <title>Matthieupedia – Blog</title>
+    <title>Matthieupedia – How to Install and Use Proton on Linux</title>
     <style>
       body {
         background-color: #f0f8ff;
@@ -23,17 +23,19 @@
         border-radius: 8px;
         margin-bottom: 20px;
       }
-      section {
+      article {
         background-color: white;
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
-      article {
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #eee;
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 15px auto;
+        border-radius: 8px;
       }
       a {
         color: #3498db;
@@ -46,30 +48,77 @@
         text-align: center;
         margin-bottom: 20px;
       }
+      h2, h3 {
+        color: #2c3e50;
+      }
+      ul, ol {
+        margin-left: 20px;
+      }
     </style>
   </head>
   <body>
     <header>
       <h1>Matthieupedia</h1>
-      <p>Blog – Tutorials for Linux and gaming</p>
+      <p>Tutorials for Linux and gaming</p>
     </header>
 
-    <nav>
-      <a href="index.html" style="margin-right: 15px;">Home</a>
-      <a href="blog.html">Blog</a>
+    <nav style="text-align: center; margin-bottom: 20px;">
+      <a href="../index.html" style="margin-right: 15px;">Home</a>
+      <a href="../blog.html">Blog</a>
     </nav>
 
-    <section>
-      <h2>Latest Articles</h2>
+    <article>
+      <h2>How to Install and Use Proton on Linux</h2>
+      <p style="color: #666; font-style: italic;">Published on 04/08/2026</p>
 
-      <article>
-        <h3><a href="articles/how-to-install-proton.html">How to Install Proton on Linux</a></h3>
-        <p style="color: #666; font-size: 14px;">Published on 04/08/2026</p>
-        <p>A step-by-step guide to installing and configuring Proton on Steam for Linux.</p>
-      </article>
+      <img src="../images/proton-logo.png" alt="Proton Logo">
 
-      <!-- Add more articles here -->
-    </section>
+      <h3>Introduction</h3>
+      <p>Proton is a tool developed by Valve that allows you to play Windows games on Linux. This guide covers both installation and usage of Proton on Steam.</p>
+
+      <!-- Section Installation -->
+      <h3>Step 1: Install Proton on Linux</h3>
+      <ol>
+        <li>Open Steam and go to <strong>Settings</strong>.</li>
+        <li>Click on <strong>Steam Play</strong>.</li>
+        <li>Check <strong>Enable Steam Play for all titles</strong>.</li>
+        <li>Select the Proton version you want to use (e.g., Proton 7.0 or Proton Experimental).</li>
+      </ol>
+
+      <p>Proton is now enabled for all your games, but you may need to configure it individually for each game.</p>
+
+      <!-- Section Utilisation -->
+      <h3>Step 2: Use Proton to Play Windows Games</h3>
+
+      <h4>Launching a Game</h4>
+      <ol>
+        <li>Find a Windows game in your Steam library.</li>
+        <li>Right-click on the game and select <strong>Properties</strong>.</li>
+        <li>In the <strong>Compatibility</strong> section, check <strong>Force the use of a specific Steam Play compatibility tool</strong>.</li>
+        <li>Select the Proton version you want to use for this game.</li>
+      </ol>
+
+      <h4>Troubleshooting</h4>
+      <p>If a game doesn't launch or has issues:</p>
+      <ul>
+        <li>Try a different Proton version (e.g., switch from Proton 7.0 to Proton Experimental).</li>
+        <li>Check the game's compatibility on <a href="https://www.protondb.com/" target="_blank">ProtonDB</a> for user reports and fixes.</li>
+        <li>Update your graphics drivers and Steam.</li>
+      </ul>
+
+      <h4>ProtonDB</h4>
+      <p><a href="https://www.protondb.com/" target="_blank">ProtonDB</a> is a community-driven database where users report how well games work with Proton. You can search for a specific game to see:</p>
+      <ul>
+        <li>Compatibility ratings (e.g., Platinum, Gold, Silver, Bronze).</li>
+        <li>User reports with specific fixes or settings.</li>
+        <li>Recommended Proton versions for the game.</li>
+      </ul>
+
+      <h3>Conclusion</h3>
+      <p>Proton is a powerful tool for Linux gamers. With these steps, you should be able to install, configure, and use Proton to play most of your Windows games on Linux without issues!</p>
+
+      <p><a href="../blog.html">Back to Blog</a></p>
+    </article>
 
     <footer style="background-color: #3c4e56; color: white; text-align: center; padding: 15px; border-radius: 8px;">
       <p>© 2026 Matthieupedia – All rights reserved</p>
