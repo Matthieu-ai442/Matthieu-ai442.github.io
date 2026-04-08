@@ -1,0 +1,23 @@
+name: Comment
+description: Post a comment or question about an article
+title: "Commentaire: "
+labels: ["comment"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your comment! Please fill out the details below.
+  - type: textarea
+    id: comment
+    attributes:
+      label: Your comment or question
+      description: Please provide as much detail as possible.
+    validations:
+      required: true
+  - type: input
+    id: article
+    attributes:
+      label: Article title
+      value: "How to Install and Use Proton on Linux"
+    validations:
+      required: true
