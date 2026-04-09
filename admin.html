@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Matthieupedia Admin – Post new articles.">
+    <meta name="author" content="Matthieu Bonnotte">
+    <title>Matthieupedia – Admin Panel</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+        color: #333333;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+      header {
+        background-color: #3c4e56;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      form {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input, textarea, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Matthieupedia Admin Panel</h1>
+      <p>Post new articles</p>
+    </header>
+
+    <nav style="text-align: center; margin-bottom: 20px;">
+      <a href="index.html" style="margin-right: 15px;">Home</a>
+      <a href="blog.html" style="margin-right: 15px;">Blog</a>
+      <a href="admin.html">Admin Panel</a>
+    </nav>
+
+    <form id="newArticleForm">
+      <h2>New Article</h2>
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required>
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" rows="20" required></textarea>
+
+      <label for="filename">Filename (e.g., how-to-install-proton.html):</label>
+      <input type="text" id="filename" name="filename" required>
+
+      <button type="button" onclick="generateArticle()">Generate Article</button>
+    </form>
+
+    <div id="generatedCode" style="background-color: white; border-radius: 8px; padding: 20px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: none;">
+      <h2>Generated Article Code</h2>
+      <p>Copy the following code and create a new file in the <code>articles</code> folder:</p>
+      <textarea id="articleCode" rows="20" style="width: 100%;"></textarea>
+      <p style="margin-top: 10px;">
+        <a href="https://github.com/matthieu-ai442/matthieu-ai442.github.io/new/main/articles" target="_blank" style="color: #3498db;">Create this file on GitHub</a>
+      </p>
+    </div>
+
+    <script>
+      function generateArticle() {
+        const title = document.getElementById("title").value;
+        const date = document.getElementById("date").value;
+        const content = document.getElementById("content").value;
+        const filename = document.getElementById("filename").value;
+
+        const articleCode = `
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="${title} – Matthieupedia">
+    <meta name="keywords" content="Proton, Linux, gaming, tutorial">
+    <meta name="author" content="Matthieu Bonnotte">
+    <title>Matthieupedia – ${title}</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+        color: #333333;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+      header {
+        background-color: #3c4e56;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      article {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 15px auto;
+        border-radius: 8px;
+      }
+      a {
+        color: #3498db;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      nav {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Matthieupedia</h1>
+      <p>Tutorials for Linux and gaming</p>
+    </header>
+
+    <nav style="text-align: center; margin-bottom: 20px;">
+      <a href="../index.html" style="margin-right: 15px;">Home</a>
+      <a href="../blog.html">Blog</a>
+    </nav>
+
+    <article>
+      <h2>${title}</h2>
+      <p style="color: #666; font-style: italic;">Published on ${date}</p>
+
+      ${content}
+
+      <p><a href="../blog.html">Back to Blog</a></p>
+    </article>
+
+    <footer style="background-color: #3c4e56; color: white; text-align: center; padding: 15px; border-radius: 8px; margin-top: 20px;">
+      <p>© 2026 Matthieupedia – All rights reserved</p>
+    </footer>
+  </body>
+</html>
+        `;
+
+        document.getElementById("articleCode").value = articleCode;
+        document.getElementById("generatedCode").style.display = "block";
+      }
+    </script>
+
+    <footer style="background-color: #3c4e56; color: white; text-align: center; padding: 15px; border-radius: 8px; margin-top: 20px;">
+      <p>© 2026 Matthieupedia – All rights reserved</p>
+    </footer>
+  </body>
+</html>
